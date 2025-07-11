@@ -461,7 +461,7 @@
   <div class="tool-card">
     <h3>YouTube Timestamp Generator</h3>
     <p>Auto-creates clickable timestamps for your YouTube videos</p>
-    <a href="https://github.com/abdurrehmanwebdeveloper/toolzkit/tree/main/YouTube%20Timestamp%20Generator" class="tool-link" target="_blank">
+    <a href="Youtube Time Stamp" class="tool-link" target="_blank">
       Use Tool <i class="fas fa-arrow-right"></i>
     </a>
   </div>
