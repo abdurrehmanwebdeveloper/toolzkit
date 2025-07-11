@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to generate YouTube timestamps for your videos. Create clickable timestamps for YouTube descriptions easily.">
+    <meta name="keywords" content="YouTube timestamp generator, YouTube time codes, video timestamps, YouTube tools, video SEO">
+    <title>Advanced YouTube Timestamp Generator | Create Clickable Time Codes</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Advanced YouTube Timestamp Generator">
+    <meta property="og:description" content="Free online tool to generate YouTube timestamps for your videos. Create clickable timestamps for YouTube descriptions easily.">
+    <meta property="og:image" content="https://yourdomain.com/images/timestamp-generator-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:title" content="Advanced YouTube Timestamp Generator">
+    <meta property="twitter:description" content="Free online tool to generate YouTube timestamps for your videos. Create clickable timestamps for YouTube descriptions easily.">
+    <meta property="twitter:image" content="https://yourdomain.com/images/timestamp-generator-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com/" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "YouTube Timestamp Generator",
+      "url": "https://yourdomain.com/",
+      "description": "Free online tool to generate YouTube timestamps for your videos.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web Browser"
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #282828;
+            --accent-color: #606060;
+            --light-color: #f9f9f9;
+            --dark-color: #212121;
+            --text-color: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .ad-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .ad-unit {
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            padding: 1rem;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tool-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tool-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .tool-header h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .input-group input, 
+        .input-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .input-group input:focus, 
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #505050;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timestamp-output {
+            margin-top: 2rem;
+        }
+        
+        .output-area {
+            width: 100%;
+            min-height: 150px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-bottom: 1rem;
+        }
+        
+        .copy-btn {
+            margin-top: 0.5rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .ad-banner {
+            width: 100%;
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            padding: 1rem;
+            text-align: center;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--text-light);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--text-light);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .ad-sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.75rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .ad-sidebar {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <span>Timestamp Generator</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Advanced YouTube Timestamp Generator</h1>
+            <p>Create clickable timestamps for your YouTube videos instantly. Improve viewer experience and SEO with properly formatted time codes.</p>
+            <a href="#generator" class="btn">Try It Now</a>
+        </div>
+    </section>
+    
+    <!-- Ad Banner Top -->
+    <div class="container">
+        <div class="ad-banner">
+            <!-- AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
+            <!-- Top Banner Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container main-content">
+        <main>
+            <!-- Timestamp Generator Tool -->
+            <section id="generator" class="tool-container">
+                <div class="tool-header">
+                    <h2>YouTube Timestamp Generator</h2>
+                    <p>Enter your video details to generate clickable timestamps</p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="videoTitle">Video Title (Optional)</label>
+                    <input type="text" id="videoTitle" placeholder="Enter your video title">
+                </div>
+                
+                <div class="input-group">
+                    <label for="timestampData">Timestamps (One per line in format: HH:MM:SS - Description)</label>
+                    <textarea id="timestampData" rows="8" placeholder="00:00:00 - Introduction&#10;00:01:30 - Main Topic&#10;00:05:45 - Conclusion"></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label for="timestampFormat">Output Format</label>
+                    <select id="timestampFormat" class="input-group">
+                        <option value="basic">Basic Timestamps (00:00:00)</option>
+                        <option value="numbered">Numbered List</option>
+                        <option value="bulleted">Bulleted List</option>
+                        <option value="table">Table Format</option>
+                        <option value="chapter">YouTube Chapters Format</option>
+                    </select>
+                </div>
+                
+                <div class="btn-group">
+                    <button id="generateBtn" class="btn">Generate Timestamps</button>
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    <button id="exampleBtn" class="btn btn-secondary">Load Example</button>
+                </div>
+                
+                <div class="timestamp-output">
+                    <label for="outputArea">Generated Timestamps:</label>
+                    <div id="outputArea" class="output-area" readonly></div>
+                    <button id="copyBtn" class="btn copy-btn">Copy to Clipboard</button>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section id="features" class="tool-container">
+                <div class="tool-header">
+                    <h2>Features</h2>
+                    <p>Why our YouTube Timestamp Generator stands out</p>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Lightning Fast</h3>
+                        <p>Generate timestamps in seconds with our optimized tool that works instantly in your browser.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Fully Responsive</h3>
+                        <p>Works perfectly on all devices - desktop, tablet, and mobile phones.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Multiple Formats</h3>
+                        <p>Supports various output formats including numbered lists, tables, and YouTube chapters.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Privacy Focused</h3>
+                        <p>All processing happens in your browser - we don't store your data on our servers.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-adjust"></i>
+                        <h3>Dark Mode</h3>
+                        <p>Eyes-friendly dark mode option available for comfortable nighttime use.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-language"></i>
+                        <h3>Multi-language</h3>
+                        <p>Supports timestamps in any language - perfect for international creators.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- How It Works Section -->
+            <section id="how-it-works" class="tool-container">
+                <div class="tool-header">
+                    <h2>How It Works</h2>
+                    <p>Simple steps to generate your YouTube timestamps</p>
+                </div>
+                
+                <div class="input-group">
+                    <h3>Step 1: Enter Your Timestamps</h3>
+                    <p>Input your timestamps in the format: <code>HH:MM:SS - Description</code>. Put each timestamp on a new line.</p>
+                    
+                    <h3>Step 2: Choose Output Format</h3>
+                    <p>Select from various formats like basic timestamps, numbered lists, or YouTube chapters format.</p>
+                    
+                    <h3>Step 3: Generate & Copy</h3>
+                    <p>Click "Generate Timestamps" and copy the results to your YouTube video description.</p>
+                    
+                    <h3>Step 4: Enhance Your Video</h3>
+                    <p>Viewers can now easily navigate your video using the clickable timestamps you've added.</p>
+                </div>
+            </section>
+            
+            <!-- FAQ Section -->
+            <section id="faq" class="tool-container">
+                <div class="tool-header">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="input-group">
+                    <h3>Why should I add timestamps to my YouTube videos?</h3>
+                    <p>Timestamps improve viewer experience by allowing them to jump to specific sections. They also help with SEO as YouTube can parse them to create video chapters.</p>
+                    
+                    <h3>What's the correct timestamp format?</h3>
+                    <p>The standard format is HH:MM:SS (hours:minutes:seconds). You can also use MM:SS for shorter videos.</p>
+                    
+                    <h3>Can I edit timestamps after generating them?</h3>
+                    <p>Yes! The output is editable - you can modify it directly in the output box before copying.</p>
+                    
+                    <h3>Is there a limit to how many timestamps I can add?</h3>
+                    <p>YouTube supports up to 100 chapters per video, but for practical purposes, 10-20 well-organized timestamps work best.</p>
+                    
+                    <h3>Do timestamps affect my video's SEO?</h3>
+                    <p>Yes! Properly formatted timestamps can improve your video's visibility in search results by providing more context to YouTube's algorithm.</p>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Sidebar with Ads -->
+        <aside class="ad-sidebar">
+            <div class="ad-unit">
+                <!-- AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
+                <!-- Sidebar Ad 1 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
+            <div class="ad-unit">
+                <!-- AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
+                <!-- Sidebar Ad 2 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
+            <div class="tool-container">
+                <h3>YouTube Tips</h3>
+                <ul>
+                    <li>Place important content in the first 30 seconds</li>
+                    <li>Use timestamps to reduce viewer drop-off</li>
+                    <li>Optimize your video titles with keywords</li>
+                    <li>Engage with your audience in comments</li>
+                    <li>Create eye-catching thumbnails</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Ad Banner Bottom -->
+    <div class="container">
+        <div class="ad-banner">
+            <!-- AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"></script>
+            <!-- Bottom Banner Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#generator">Timestamp Generator</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://support.google.com/youtube/" target="_blank">YouTube Help</a></li>
+                        <li><a href="https://creatoracademy.youtube.com/" target="_blank">YouTube Creator Academy</a></li>
+                        <li><a href="https://adsense.google.com/" target="_blank">Google AdSense</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column" id="contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@yourtimestampgenerator.com</li>
+                        <li><i class="fas fa-globe"></i> www.yourtimestampgenerator.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> YouTube Timestamp Generator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Timestamp Generator Functionality
+        const generateBtn = document.getElementById('generateBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const exampleBtn = document.getElementById('exampleBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const timestampData = document.getElementById('timestampData');
+        const videoTitle = document.getElementById('videoTitle');
+        const timestampFormat = document.getElementById('timestampFormat');
+        const outputArea = document.getElementById('outputArea');
+        
+        // Generate timestamps
+        generateBtn.addEventListener('click', () => {
+            const title = videoTitle.value.trim();
+            const rawData = timestampData.value.trim();
+            const format = timestampFormat.value;
+            
+            if (!rawData) {
+                alert('Please enter at least one timestamp');
+                return;
+            }
+            
+            const lines = rawData.split('\n');
+            let output = '';
+            
+            if (title) {
+                output += `${title}\n\n`;
+            }
+            
+            switch(format) {
+                case 'basic':
+                    output += generateBasicTimestamps(lines);
+                    break;
+                case 'numbered':
+                    output += generateNumberedList(lines);
+                    break;
+                case 'bulleted':
+                    output += generateBulletedList(lines);
+                    break;
+                case 'table':
+                    output += generateTable(lines);
+                    break;
+                case 'chapter':
+                    output += generateChapters(lines);
+                    break;
+                default:
+                    output += generateBasicTimestamps(lines);
+            }
+            
+            outputArea.textContent = output;
+        });
+        
+        // Helper functions for different formats
+        function generateBasicTimestamps(lines) {
+            return lines.map(line => {
+                const [time, ...descParts] = line.split('-');
+                const description = descParts.join('-').trim();
+                return `${time.trim()} ${description}`;
+            }).join('\n');
+        }
+        
+        function generateNumberedList(lines) {
+            return lines.map((line, index) => {
+                const [time, ...descParts] = line.split('-');
+                const description = descParts.join('-').trim();
+                return `${index + 1}. ${time.trim()} - ${description}`;
+            }).join('\n');
+        }
+        
+        function generateBulletedList(lines) {
+            return lines.map(line => {
+                const [time, ...descParts] = line.split('-');
+                const description = descParts.join('-').trim();
+                return `• ${time.trim()} - ${description}`;
+            }).join('\n');
+        }
+        
+        function generateTable(lines) {
+            let table = 'Time | Description\n';
+            table += '---- | -----------\n';
+            
+            lines.forEach(line => {
+                const [time, ...descParts] = line.split('-');
+                const description = descParts.join('-').trim();
+                table += `${time.trim()} | ${description}\n`;
+            });
+            
+            return table;
+        }
+        
+        function generateChapters(lines) {
+            let chapters = '';
+            
+            lines.forEach(line => {
+                const [time, ...descParts] = line.split('-');
+                const description = descParts.join('-').trim();
+                chapters += `${time.trim()} ${description}\n`;
+            });
+            
+            return chapters;
+        }
+        
+        // Clear inputs
+        clearBtn.addEventListener('click', () => {
+            timestampData.value = '';
+            videoTitle.value = '';
+            outputArea.textContent = '';
+        });
+        
+        // Load example
+        exampleBtn.addEventListener('click', () => {
+            videoTitle.value = 'How to Make Perfect Pancakes';
+            timestampData.value = `00:00:00 - Introduction
+00:01:15 - Ingredients Needed
+00:03:30 - Mixing the Batter
+00:06:45 - Cooking the Pancakes
+00:09:20 - Flipping Technique
+00:12:10 - Serving Suggestions
+00:14:30 - Final Thoughts`;
+        });
+        
+        // Copy to clipboard
+        copyBtn.addEventListener('click', () => {
+            if (!outputArea.textContent.trim()) {
+                alert('Nothing to copy! Generate timestamps first.');
+                return;
+            }
+            
+            navigator.clipboard.writeText(outputArea.textContent)
+                .then(() => {
+                    const originalText = copyBtn.textContent;
+                    copyBtn.textContent = 'Copied!';
+                    copyBtn.style.backgroundColor = '#4CAF50';
+                    
+                    setTimeout(() => {
+                        copyBtn.textContent = originalText;
+                        copyBtn.style.backgroundColor = '';
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                    alert('Failed to copy text. Please try again.');
+                });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Dark mode toggle (optional)
+        const darkModeToggle = document.createElement('button');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        darkModeToggle.style.position = 'fixed';
+        darkModeToggle.style.bottom = '20px';
+        darkModeToggle.style.right = '20px';
+        darkModeToggle.style.zIndex = '999';
+        darkModeToggle.style.background = 'var(--primary-color)';
+        darkModeToggle.style.color = 'white';
+        darkModeToggle.style.border = 'none';
+        darkModeToggle.style.borderRadius = '50%';
+        darkModeToggle.style.width = '50px';
+        darkModeToggle.style.height = '50px';
+        darkModeToggle.style.fontSize = '1.2rem';
+        darkModeToggle.style.cursor = 'pointer';
+        darkModeToggle.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+        document.body.appendChild(darkModeToggle);
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                document.body.style.backgroundColor = '#121212';
+                document.body.style.color = '#f0f0f0';
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                document.body.style.backgroundColor = '';
+                document.body.style.color = '';
+            }
+        });
+    </script>
+    
+    <!-- Google Analytics (optional) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>
