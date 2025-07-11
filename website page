@@ -458,13 +458,12 @@
                 SEO & Content Tools
             </h2>
            <div class="tools-grid">
-  <div class="tool-card">
-    <h3>YouTube Timestamp Generator</h3>
-    <p>Auto-creates clickable timestamps for your YouTube videos</p>
-    <a href="Youtube Time Stamp" class="tool-link" target="_blank">
-      Use Tool <i class="fas fa-arrow-right"></i>
-    </a>
-  </div>
+ <div class="tool-card">
+  <h3>YouTube Timestamp Generator</h3>
+  <p>Auto-creates clickable timestamps for your YouTube videos</p>
+  <a href="https://github.com/abdurrehmanwebdeveloper/toolzkit/blob/main/youtube.html" class="tool-link" target="_blank">
+    Use Tool <i class="fas fa-arrow-right"></i>
+  </a>
 </div>
                 <div class="tool-card">
                     <h3>Instagram Hashtag Analyzer</h3>
